@@ -26,20 +26,20 @@ project/
 
 ## grades.csv Format
 
-The CSV file must have the following column headers and structure:
+The CSV file must be named exactly `grades.csv` and placed in the same directory as `grade-evaluator.py`. It must use the following column headers and structure:
 
 ```
-assignment,group,score,weight
-Quiz,Formative,85,20
-Group Exercise,Formative,40,20
-Functions and Debugging Lab,Formative,45,20
-Midterm Project - Simple Calculator,Summative,70,20
-Final Project - Text-Based Game,Summative,60,20
+assignment, group, score, weight
+Quiz, Formative, 85, 20
+Group Exercise, Formative, 40, 20
+Functions and Debugging Lab, Formative, 45, 20
+Midterm Project - Simple Calculator, Summative, 70, 20
+Final Project - Text-Based Game, Summative, 60, 20
 ```
 
 **Column descriptions:**
 - `assignment` — Name of the assignment
-- `group` — Either `Formative` or `Summative`
+- `group` — Either `Formative` or `Summative.`
 - `score` — Raw score between 0 and 100
 - `weight` — Weight of the assignment (Formative weights must sum to 60, Summative to 40)
 
@@ -47,31 +47,26 @@ Final Project - Text-Based Game,Summative,60,20
 
 ## Running the Python Script
 
-1. Make sure `grades.csv` is in the same directory as `grade-evaluator.py`
+1. Make sure `grades.csv` is in the same directory as `grade-evaluator.py.`
 2. Run the script:
 
 ```bash
 python grade-evaluator.py
 ```
 
-3. When prompted, enter the filename:
-
-```
-Enter the name of the CSV file to process (e.g., grades.csv): grades.csv
-```
+The script automatically reads from `grades.csv` — no input is required.
 
 **Example output:**
 
 ```
---- Processing Grades ---
 =============================================
          GRADE EVALUATION REPORT
 =============================================
-  Formative Score : 34.00 / 60.00  ✓
-  Summative Score : 26.00 / 40.00  ✓
-  Final Grade     : 60.00 / 100.00
+  Formative Score: 34.00 / 60.00  ✓
+  Summative Score: 26.00 / 40.00  ✓
+  Final Grade    : 60.00 / 100.00
   GPA             : 3.00 / 5.00
-  Status          : PASSED
+  Status         : PASSED
 =============================================
 
   Eligible for resubmission: Group Exercise, Functions and Debugging Lab
@@ -84,6 +79,7 @@ Enter the name of the CSV file to process (e.g., grades.csv): grades.csv
 - If the CSV is empty, the program prints an error and exits
 - If any score is outside the 0–100 range, the program prints an error and exits
 - If weights do not meet the 60/40 split, the program prints an error and exits
+- If a row has missing or malformed data, the program prints an error and exits
 
 ---
 
@@ -105,9 +101,9 @@ bash organizer.sh
 
 **What it does:**
 - Creates an `archive/` directory if it does not already exist
-- Renames `grades.csv` with a timestamp (e.g., `grades_20251105-170000.csv`) and moves it to `archive/`
+- Renames `grades.csv` with a timestamp (e.g., `grades_20251105-170000.csv`) and moves it to `archive/.`
 - Creates a fresh empty `grades.csv` in the current directory
-- Appends a log entry to `organizer.log`
+- Appends a log entry to `organizer.log.`
 
 **Example terminal output:**
 
